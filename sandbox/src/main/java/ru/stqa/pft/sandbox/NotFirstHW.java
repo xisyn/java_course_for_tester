@@ -16,20 +16,16 @@ public class NotFirstHW {
         Point p2 = new Point(1,1);
         Point p3 = new Point(2,2);
         Point p4 = new Point(4,4);
+        Point p5 = new Point(5,5);
 
-        System.out.println(distance(p1,p2));
-        System.out.println(distance(p2,p3));
-        System.out.println(distance(p2, p4));
+        System.out.println(p1.distance(p2));
+        System.out.println(p2.distance(p3));
+        System.out.println(p2.distance(p4));
+        System.out.println(p3.distance(p5));
 
     }
 
     public static void hello(String somebody) {
         System.out.println("Hello " + somebody + "!");
     }
-
-    public static double distance(Point p1, Point p2) {
-        Point p = new Point();
-        return p.distance(p1, p2);
-    }
-
 }
