@@ -47,10 +47,6 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void returnHomePage() {
-        click(By.linkText("home"));
-    }
-
     public void initContactModification() {
         click(By.xpath("//img[@title='Edit']"));
     }
