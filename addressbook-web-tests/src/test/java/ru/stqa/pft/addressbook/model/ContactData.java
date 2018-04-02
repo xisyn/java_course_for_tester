@@ -3,32 +3,13 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private final String lastname;
-    private final String firstname;
-    private final String middlename;
-    private final String address;
-    private final String email;
+    private String lastname;
+    private String firstname;
+    private String middlename;
+    private String address;
+    private String email;
     private String group;
     private int id;
-
-
-    public ContactData(String firstname, String middlename, String lastname, String address, String email, String group) {
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.address = address;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactData(int id, String lastname, String firstname, String address, String email, String middlename) {
-        this.id = id;
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.address = address;
-        this.email = email;
-        this.middlename = middlename;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -58,8 +39,39 @@ public class ContactData {
         return id;
     }
 
-    public void setId(int id) {
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withMiddlename(String middlename) {
+        this.middlename = middlename;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+    public ContactData withId(int id) {
         this.id = id;
+        return this;
     }
 
     @Override

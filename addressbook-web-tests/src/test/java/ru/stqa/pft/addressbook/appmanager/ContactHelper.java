@@ -53,6 +53,21 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
+    public void modify(int index, ContactData contact) {
+        selectContact(index);
+        initContactModification();
+        fillContactForm(contact, false);
+        submitContactModification();
+        returnHomePage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteSelectedContact();
+        acceptDeletion();
+        returnHomePage();
+    }
+
     public void initContactModification() {
         click(By.xpath("//img[@title='Edit']"));
     }
@@ -61,7 +76,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@name='update']"));
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         initContactCreation();
         fillContactForm(contact, true);
         submitContactCreation();
@@ -72,7 +87,11 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<ContactData> getContactList() {
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
@@ -82,13 +101,8 @@ public class ContactHelper extends HelperBase {
             String firstName = cells.get(2).getText();
             String address = cells.get(3).getText();
             String email = cells.get(4).getText();
-            ContactData contact = new ContactData(id, lastName, firstName, address, email, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName).withAddress(address).withEmail(email));
         }
         return contacts;
-    }
-
-    public int getContactCount() {
-        return wd.findElements(By.name("selected[]")).size();
     }
 }
