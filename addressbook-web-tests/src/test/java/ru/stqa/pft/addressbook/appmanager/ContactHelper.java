@@ -56,21 +56,6 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void modify(ContactData contact) {
-        selectContact(contact.getId());
-        initContactModification();
-        fillContactForm(contact, false);
-        submitContactModification();
-        returnHomePage();
-    }
-
-    public void delete(ContactData contact) {
-        selectContact(contact.getId());
-        deleteSelectedContact();
-        acceptDeletion();
-        returnHomePage();
-    }
-
     public void initContactModification() {
         click(By.xpath("//img[@title='Edit']"));
     }
@@ -83,6 +68,24 @@ public class ContactHelper extends HelperBase {
         initContactCreation();
         fillContactForm(contact, true);
         submitContactCreation();
+        contactCache = null;
+        returnHomePage();
+    }
+
+    public void modify(ContactData contact) {
+        selectContact(contact.getId());
+        initContactModification();
+        fillContactForm(contact, false);
+        submitContactModification();
+        contactCache = null;
+        returnHomePage();
+    }
+
+    public void delete(ContactData contact) {
+        selectContact(contact.getId());
+        deleteSelectedContact();
+        acceptDeletion();
+        contactCache = null;
         returnHomePage();
     }
 
@@ -94,8 +97,13 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
+    private Contacts contactCache = null;
+
     public Contacts all() {
-        Contacts contacts = new Contacts();
+        if (contactCache != null) {
+            return new Contacts(contactCache);
+        }
+        contactCache = new Contacts();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
             List<WebElement> cells = element.findElements(By.tagName("td"));
@@ -104,8 +112,8 @@ public class ContactHelper extends HelperBase {
             String firstName = cells.get(2).getText();
             String address = cells.get(3).getText();
             String email = cells.get(4).getText();
-            contacts.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName).withAddress(address).withEmail(email));
+            contactCache.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName).withAddress(address).withEmail(email));
         }
-        return contacts;
+        return contactCache;
     }
 }
