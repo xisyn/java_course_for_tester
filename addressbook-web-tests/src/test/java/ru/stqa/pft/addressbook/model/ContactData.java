@@ -79,7 +79,8 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(lastname, that.lastname) &&
+        return id == that.id &&
+                Objects.equals(lastname, that.lastname) &&
                 Objects.equals(firstname, that.firstname) &&
                 Objects.equals(address, that.address) &&
                 Objects.equals(email, that.email);
@@ -88,7 +89,7 @@ public class ContactData {
     @Override
     public int hashCode() {
 
-        return Objects.hash(lastname, firstname, address, email);
+        return Objects.hash(lastname, firstname, address, email, id);
     }
 
     @Override
