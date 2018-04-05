@@ -26,11 +26,11 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testBadContactCreation() {
         Contacts before = app.contact().all();
-        ContactData contact = new ContactData().withFirstname("Name").withMiddlename("Mname")
+        ContactData contact = new ContactData().withFirstname("Name'").withMiddlename("Mname")
                 .withLastname("Lname").withAddress("test address").withEmail("test@test.com").withGroup("test1");
         app.contact().create(contact);
-        assertThat(app.contact().count(), equalTo(before));
+        assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
-        assertThat(after, equalTo(before.size()));
+        assertThat(after, equalTo(before));
     }
 }
