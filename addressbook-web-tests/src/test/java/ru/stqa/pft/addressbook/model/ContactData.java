@@ -10,6 +10,9 @@ public class ContactData {
     private String email;
     private String group;
     private int id;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
 
     public String getFirstname() {
         return firstname;
@@ -74,6 +77,21 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,5 +118,17 @@ public class ContactData {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
     }
 }

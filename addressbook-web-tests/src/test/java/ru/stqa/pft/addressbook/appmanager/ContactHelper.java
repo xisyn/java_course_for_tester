@@ -93,7 +93,7 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getContactCount() {
+    public int count() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
@@ -112,8 +112,31 @@ public class ContactHelper extends HelperBase {
             String firstName = cells.get(2).getText();
             String address = cells.get(3).getText();
             String email = cells.get(4).getText();
-            contactCache.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName).withAddress(address).withEmail(email));
+            String[] phones = cells.get(5).getText().split("\n");
+            contactCache.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName).withAddress(address).withEmail(email)
+                    .withHomePhone(phones [0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
         }
         return contactCache;
+    }
+
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModificationById(contact.getId());
+        String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+        String home = wd.findElement(By.name("home")).getAttribute("value");
+        String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+        String work = wd.findElement(By.name("work")).getAttribute("value");
+        wd.navigate().back();
+        return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    }
+
+    private void initContactModificationById(int id) {
+        WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+        WebElement row = checkbox.findElement(By.xpath("./../.."));
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        cells.get(7).findElement(By.tagName("a")).click();
+
+        //wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 }
