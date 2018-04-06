@@ -13,8 +13,9 @@ public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.contact().all().size() == 0) {
-            app.contact().create(new ContactData().withFirstname("Name").withMiddlename("Mname")
-                    .withLastname("Mname").withAddress("test address").withEmail("test@test.com").withGroup("test1"));
+            app.contact().create(new ContactData()
+                    .withFirstname("Name").withMiddlename("Mname").withLastname("Lname")
+                    .withAddress("test address").withEmail("test@test.com").withGroup("test1"));
         }
     }
 
@@ -22,8 +23,8 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
         Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
-        ContactData contact = new ContactData().withId(modifiedContact.getId()).withLastname("Lname")
-                .withFirstname("Name").withAddress("test address").withEmail("test@test.com");
+        ContactData contact = new ContactData().withId(modifiedContact.getId()).withLastname("Lname").withMiddlename("Mname")
+                .withFirstname("Name").withAddress("test address").withEmail("test@test.com").withGroup("test1");
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
