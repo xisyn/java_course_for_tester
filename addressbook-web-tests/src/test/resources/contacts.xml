@@ -1,29 +1,29 @@
 <list>
   <contact>
     <lastname>Lname0</lastname>
-    <firstname>Name0</firstname>
+    <firstname>Fname0</firstname>
     <middlename>Mname0</middlename>
-    <email>test0@test.com</email>
+    <email>test@test.com0</email>
     <group>test0</group>
-    <address>address0</address>
+    <address>adress0</address>
     <photo>src\test\resources\stru.png</photo>
   </contact>
   <contact>
     <lastname>Lname1</lastname>
-    <firstname>Name1</firstname>
+    <firstname>Fname1</firstname>
     <middlename>Mname1</middlename>
-    <email>test1@test.com</email>
+    <email>test@test.com1</email>
     <group>test1</group>
-    <address>address1</address>
+    <address>adress1</address>
     <photo>src\test\resources\stru.png</photo>
   </contact>
   <contact>
     <lastname>Lname2</lastname>
-    <firstname>Name2</firstname>
+    <firstname>Fname2</firstname>
     <middlename>Mname2</middlename>
-    <email>test2@test.com</email>
+    <email>test@test.com2</email>
     <group>test2</group>
-    <address>address2</address>
+    <address>adress2</address>
     <photo>src\test\resources\stru.png</photo>
   </contact>
 </list>

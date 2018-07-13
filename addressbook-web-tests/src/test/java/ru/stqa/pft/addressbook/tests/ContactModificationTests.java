@@ -14,8 +14,12 @@ public class ContactModificationTests extends TestBase {
     public void ensurePreconditions() {
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData()
-                    .withFirstname("Name").withMiddlename("Mname").withLastname("Lname")
-                    .withAddress("test address").withEmail("test@test.com").withGroup("test1"));
+                    .withFirstname(properties.getProperty("contact.Firstname"))
+                    .withMiddlename(properties.getProperty("contact.Middlename"))
+                    .withLastname(properties.getProperty("contact.Lastname"))
+                    .withAddress(properties.getProperty("contact.Address"))
+                    .withEmail(properties.getProperty("contact.Email"))
+                    .withGroup(properties.getProperty("contact.Group")));
         }
     }
 
@@ -23,8 +27,13 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification() {
         Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
-        ContactData contact = new ContactData().withId(modifiedContact.getId()).withLastname("Lname").withMiddlename("Mname")
-                .withFirstname("Name").withAddress("test address").withEmail("test@test.com");
+        ContactData contact = new ContactData().withId(modifiedContact.getId())
+                .withFirstname(properties.getProperty("contact.Firstname"))
+                .withMiddlename(properties.getProperty("contact.Middlename"))
+                .withLastname(properties.getProperty("contact.Lastname"))
+                .withAddress(properties.getProperty("contact.Address"))
+                .withEmail(properties.getProperty("contact.Email"))
+                .withGroup(properties.getProperty("contact.Group"));
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();

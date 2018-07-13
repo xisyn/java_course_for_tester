@@ -15,7 +15,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupDataGenerator {
+public class GroupDataGenerator extends BaseDataGenerator {
 
     @Parameter(names = "-c", description = "Group count")
     public int count;
@@ -25,6 +25,10 @@ public class GroupDataGenerator {
 
     @Parameter(names = "-d", description = "Data format")
     public String format;
+
+    protected GroupDataGenerator() throws IOException {
+        super();
+    }
 
     public static void main(String[] args) throws IOException {
         GroupDataGenerator generator = new GroupDataGenerator();
@@ -79,9 +83,9 @@ public class GroupDataGenerator {
     private List<GroupData> generateGroups(int count) {
         List<GroupData> groups = new ArrayList<GroupData>();
         for (int i = 0; i < count; i++) {
-            groups.add(new GroupData().withName(String.format("test%s", i))
-                    .withHeader(String.format("header%s", i))
-                    .withFooter(String.format("footer%s", i)));
+            groups.add(new GroupData().withName(String.format(properties.getProperty("group.Name") + "%s", i))
+                    .withHeader(String.format(properties.getProperty("group.Header") + "%s", i))
+                    .withFooter(String.format(properties.getProperty("group.Footer") + "%s", i)));
         }
         return groups;
     }

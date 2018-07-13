@@ -14,8 +14,12 @@ public class ContactDeletionTests extends TestBase {
     public void ensurePreconditions() {
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData()
-                    .withFirstname("Name").withMiddlename("Mname").withLastname("Lname")
-                    .withAddress("test address").withEmail("test@test.com").withGroup("test1"));
+                    .withFirstname(properties.getProperty("contact.Firstname"))
+                    .withMiddlename(properties.getProperty("contact.Middlename"))
+                    .withLastname(properties.getProperty("contact.Lastname"))
+                    .withAddress(properties.getProperty("contact.Address"))
+                    .withEmail(properties.getProperty("contact.Email"))
+                    .withGroup(properties.getProperty("contact.Group")));
         }
     }
 

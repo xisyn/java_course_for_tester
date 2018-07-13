@@ -8,14 +8,12 @@ import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
-public class ContactDataGenerator {
+public class ContactDataGenerator extends BaseDataGenerator {
 
     @Parameter(names = "-c", description = "Contact count")
     public int count;
@@ -25,6 +23,10 @@ public class ContactDataGenerator {
 
     @Parameter(names = "-d", description = "Data format")
     public String format;
+
+    protected ContactDataGenerator() throws IOException {
+        super();
+    }
 
     public static void main(String[] args) throws IOException {
         ContactDataGenerator generator = new ContactDataGenerator();
@@ -78,16 +80,16 @@ public class ContactDataGenerator {
         }
     }
 
-    private List<ContactData> generateContacts(int count) {
+    private List<ContactData> generateContacts(int count) throws IOException {
         File photo = new File("src/test/resources/stru.png");
         List<ContactData> contacts = new ArrayList<ContactData>();
         for (int i = 0; i < count; i++) {
-            contacts.add(new ContactData().withFirstname(String.format("Name%s", i))
-                    .withMiddlename(String.format("Mname%s", i))
-                    .withLastname(String.format("Lname%s", i))
-                    .withAddress(String.format("address%s", i))
-                    .withEmail(String.format("test%s@test.com", i))
-                    .withGroup(String.format("test%s", i))
+            contacts.add(new ContactData().withFirstname(String.format(properties.getProperty("contact.Firstname") + "%s", i))
+                    .withMiddlename(String.format(properties.getProperty("contact.Middlename") + "%s", i))
+                    .withLastname(String.format(properties.getProperty("contact.Lastname") + "%s", i))
+                    .withAddress(String.format(properties.getProperty("contact.Address") + "%s", i))
+                    .withEmail(String.format(properties.getProperty("contact.Email") + "%s", i))
+                    .withGroup(String.format(properties.getProperty("contact.Group") + "%s", i))
                     .withPhoto(photo));
         }
         return contacts;

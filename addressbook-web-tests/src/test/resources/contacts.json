@@ -1,0 +1,29 @@
+[
+  {
+    "lastname": "Lname0",
+    "firstname": "Name0",
+    "middlename": "Mname0",
+    "email": "test0@test.com",
+    "group": "test0",
+    "address": "address0",
+    "photo": {}
+  },
+  {
+    "lastname": "Lname1",
+    "firstname": "Name1",
+    "middlename": "Mname1",
+    "email": "test1@test.com",
+    "group": "test1",
+    "address": "address1",
+    "photo": {}
+  },
+  {
+    "lastname": "Lname2",
+    "firstname": "Name2",
+    "middlename": "Mname2",
+    "email": "test2@test.com",
+    "group": "test2",
+    "address": "address2",
+    "photo": {}
+  }
+]

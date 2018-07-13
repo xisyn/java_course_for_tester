@@ -66,8 +66,12 @@ public class ContactCreationTests extends TestBase {
     @Test(enabled = false)
     public void testBadContactCreation() {
         Contacts before = app.contact().all();
-        ContactData contact = new ContactData().withFirstname("Name'").withMiddlename("Mname")
-                .withLastname("Lname").withAddress("test address").withEmail("test@test.com").withGroup("test1");
+        ContactData contact = new ContactData().withFirstname(properties.getProperty("contact.BadName"))
+                .withMiddlename(properties.getProperty("contact.Middlename"))
+                .withLastname(properties.getProperty("contact.Lastname"))
+                .withAddress(properties.getProperty("contact.Address"))
+                .withEmail(properties.getProperty("contact.Email"))
+                .withGroup(properties.getProperty("contact.Group"));
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
