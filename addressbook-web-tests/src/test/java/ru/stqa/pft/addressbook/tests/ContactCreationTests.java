@@ -3,11 +3,13 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,6 +22,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (app.db().groups().size() == 0) {
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName(properties.getProperty("group.Name")));
+        }
+    }
 
     @DataProvider
     public Iterator<Object[]> validContactsFromXml() throws IOException {
@@ -67,13 +77,14 @@ public class ContactCreationTests extends TestBase {
 
     @Test(enabled = false)
     public void testBadContactCreation() {
-        Contacts before = app.db().contacts();
+        Groups groups = app.db().groups();
         ContactData contact = new ContactData().withFirstname(properties.getProperty("contact.BadName"))
                 .withMiddlename(properties.getProperty("contact.Middlename"))
                 .withLastname(properties.getProperty("contact.Lastname"))
                 .withAddress(properties.getProperty("contact.Address"))
                 .withEmail(properties.getProperty("contact.Email"))
-                .withGroup(properties.getProperty("contact.Group"));
+                .inGroup(groups.iterator().next());
+        Contacts before = app.db().contacts();
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.db().contacts();

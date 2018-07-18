@@ -66,7 +66,7 @@ public class ContactDataGenerator extends BaseDataGenerator {
         try (Writer writer = new FileWriter(file)) {
             for (ContactData contact : contacts) {
                 writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstname(), contact.getMiddlename(),
-                        contact.getLastname(), contact.getAddress(), contact.getEmail(), contact.getGroup(), contact.getPhoto()));
+                        contact.getLastname(), contact.getAddress(), contact.getEmail()/*, contact.getGroup()*/, contact.getPhoto()));
             }
         }
     }
@@ -89,7 +89,7 @@ public class ContactDataGenerator extends BaseDataGenerator {
                     .withLastname(String.format(properties.getProperty("contact.Lastname") + "%s", i))
                     .withAddress(String.format(properties.getProperty("contact.Address") + "%s", i))
                     .withEmail(String.format(properties.getProperty("contact.Email") + "%s", i))
-                    .withGroup(String.format(properties.getProperty("contact.Group") + "%s", i))
+                    //.withGroup(String.format(properties.getProperty("contact.Group") + "%s", i))
                     .withPhoto(photo));
         }
         return contacts;

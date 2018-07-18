@@ -4,7 +4,7 @@
     "firstname": "Name0",
     "middlename": "Mname0",
     "email": "test0@test.com",
-    "group": "test0",
+    "groups": "test0",
     "address": "address0",
     "photo": {}
   },
@@ -13,7 +13,7 @@
     "firstname": "Name1",
     "middlename": "Mname1",
     "email": "test1@test.com",
-    "group": "test1",
+    "groups": "test1",
     "address": "address1",
     "photo": {}
   },
@@ -22,7 +22,7 @@
     "firstname": "Name2",
     "middlename": "Mname2",
     "email": "test2@test.com",
-    "group": "test2",
+    "groups": "test2",
     "address": "address2",
     "photo": {}
   }

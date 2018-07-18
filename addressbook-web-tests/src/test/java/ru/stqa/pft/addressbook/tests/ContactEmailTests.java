@@ -15,7 +15,6 @@ public class ContactEmailTests extends TestBase {
         app.goTo().HomePage();
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
-
         MatcherAssert.assertThat(contact.getEmail(), CoreMatchers.equalTo(mergeEmails(contactInfoFromEditForm)));
     }
 
