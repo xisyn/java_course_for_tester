@@ -15,23 +15,18 @@ import java.util.Objects;
 public class ContactData {
     @XStreamOmitField
     @Id
-    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
 
     @Expose
-    @Column(name = "lastname")
     private String lastname;
 
     @Expose
-    @Column(name = "firstname")
     private String firstname;
 
     @Expose
-    @Column(name = "middlename")
     private String middlename;
 
     @Expose
-    @Column(name = "email")
     @Type(type = "text")
     private String email;
 
@@ -66,13 +61,17 @@ public class ContactData {
     @Transient
     private String email3;
 
-    @Expose
+
     @Column(name = "photo")
     @Type(type = "text")
     private String photo;
 
     public File getPhoto() {
-        return new File(photo);
+        if (photo != null) {
+            return new File(photo);
+        } else {
+            return null;
+        }
     }
 
     public ContactData withPhoto(File photo) {
@@ -210,27 +209,31 @@ public class ContactData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(lastname, that.lastname) &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(address, that.address) &&
-                Objects.equals(email, that.email);
+
+        if (id != that.id) return false;
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        return address != null ? address.equals(that.address) : that.address == null;
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(lastname, firstname, address, email, id);
+        int result = id;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "ContactData{" +
-                "lastname='" + lastname + '\'' +
+                "id=" + id +
                 ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
