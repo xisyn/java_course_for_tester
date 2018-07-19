@@ -162,7 +162,6 @@ public class ContactData {
         return new Groups(groups);
     }
 
-
     public ContactData withEmail(String email) {
         this.email = email;
         return this;

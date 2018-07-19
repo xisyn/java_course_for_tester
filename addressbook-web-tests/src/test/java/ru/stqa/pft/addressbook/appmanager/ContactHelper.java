@@ -65,6 +65,14 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@name='update']"));
     }
 
+    private void addContactToGroup() {
+        click(By.xpath("//input[@name='add']"));
+    }
+
+    private void removeContactFromGroup() {
+        click(By.xpath("//input[@name='remove']"));
+    }
+
     public void create(ContactData contact) {
         initContactCreation();
         fillContactForm(contact, true);
@@ -86,6 +94,22 @@ public class ContactHelper extends HelperBase {
         selectContact(contact.getId());
         deleteSelectedContact();
         acceptDeletion();
+        contactCache = null;
+        returnHomePage();
+    }
+
+    public void addToGroup(ContactData contact, int groupId) {
+        selectContact(contact.getId());
+        selectByValue(By.name("to_group"), Integer.toString(groupId));
+        addContactToGroup();
+        contactCache = null;
+        returnHomePage();
+    }
+
+    public void removeFromGroup(ContactData contact, int groupId) {
+        selectByValue(By.name("group"), Integer.toString(groupId));
+        selectContact(contact.getId());
+        removeContactFromGroup();
         contactCache = null;
         returnHomePage();
     }
