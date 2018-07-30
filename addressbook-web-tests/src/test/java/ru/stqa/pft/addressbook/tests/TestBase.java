@@ -39,17 +39,17 @@ public class TestBase {
         properties.load(fileInputStream);
     }
 
-    @AfterSuite (alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         app.stop();
     }
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void logTestStart(Method m, Object[] p) {
         logger.info("Start test " + m.getName() + " with parameters " + Arrays.asList(p));
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void logTestStop(Method m, Object[] p) {
         logger.info("Stop test " + m.getName() + " with parameters " + Arrays.asList(p));
     }

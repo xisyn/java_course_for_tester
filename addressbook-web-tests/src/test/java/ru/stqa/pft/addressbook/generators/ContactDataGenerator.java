@@ -8,10 +8,12 @@ import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class ContactDataGenerator extends BaseDataGenerator {
 
@@ -48,8 +50,7 @@ public class ContactDataGenerator extends BaseDataGenerator {
             saveAsXml(contacts, new File(file));
         } else if (format.equals("json")) {
             saveAsJson(contacts, new File(file));
-        }
-            else {
+        } else {
             System.out.println("Unrecognized format " + format);
         }
     }
