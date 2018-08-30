@@ -1,8 +1,5 @@
 package ru.stqa.pft.mantis.tests;
 
-import biz.futureware.mantis.rpc.soap.client.ObjectRef;
-import org.testng.Assert;
-import org.testng.ISuite;
 import org.testng.annotations.Test;
 import ru.stqa.pft.mantis.model.Issue;
 import ru.stqa.pft.mantis.model.Project;
@@ -26,6 +23,7 @@ public class SoapTests extends TestBase {
 
     @Test
     public void testCreateIssue() throws RemoteException, ServiceException, MalformedURLException {
+        skipIfNotFixed(0000015);
         Set<Project> projects = app.soap().getProjects();
         Issue issue = new Issue().withSummary("Test issue")
                 .withDescription("Test issue description").withProject(projects.iterator().next());
