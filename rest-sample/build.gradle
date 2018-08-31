@@ -16,3 +16,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
     testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
 }
+
+test {
+    useTestNG()
+}

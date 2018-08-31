@@ -11,3 +11,7 @@ dependencies {
     compile group: 'com.jcabi', name: 'jcabi-github', version: '0.41'
 
 }
+
+test {
+    useTestNG()
+}
