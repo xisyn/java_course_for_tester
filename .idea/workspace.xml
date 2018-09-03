@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0ec29a7-2ced-40ee-9993-b09ed2f14696" name="Default" comment="Decrease groups test">
-      <change afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/resources/remote.properties" afterDir="false" />
+    <list default="true" id="d0ec29a7-2ced-40ee-9993-b09ed2f14696" name="Default" comment="Add remote start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook-web-tests/src/test/resources/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook-web-tests/src/test/resources/local.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/sandbox/.gradle/" />
     <ignored path="$PROJECT_DIR$/sandbox/build/" />
@@ -113,14 +110,14 @@
           <entry key="java" value="6324" />
           <entry key="php" value="116" />
           <entry key="properties" value="96" />
-          <entry key="txt" value="379" />
+          <entry key="txt" value="396" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="143" />
           <entry key="JAVA" value="6324" />
-          <entry key="PLAIN_TEXT" value="495" />
+          <entry key="PLAIN_TEXT" value="512" />
           <entry key="Properties" value="96" />
         </counts>
       </usages-collector>
@@ -172,8 +169,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="53" column="67" lean-forward="true" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+            <state relative-caret-position="510">
+              <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
               <folding>
                 <element signature="e#2016#2017#0" expanded="true" />
                 <element signature="e#2042#2043#0" expanded="true" />
@@ -2420,7 +2417,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535959256779" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535959584595" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/github-sample/build.gradle" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -2789,13 +2786,6 @@
       <option name="presentableId" value="Default" />
       <updated>1521193648040</updated>
     </task>
-    <task id="LOCAL-00006" summary="Create test for group">
-      <created>1522036204667</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1522036204667</updated>
-    </task>
     <task id="LOCAL-00007" summary="Refactor code">
       <created>1522037385934</created>
       <option name="number" value="00007" />
@@ -3132,7 +3122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535697651393</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Add remote start">
+      <created>1535959378812</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1535959378812</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -3177,7 +3174,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18573265" />
@@ -3254,7 +3251,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add contact phone test" />
     <MESSAGE value="Add contact address and email tests" />
     <MESSAGE value="Clean imports and code" />
     <MESSAGE value="Add attach photos and data generator" />
@@ -3279,7 +3275,8 @@
     <MESSAGE value="Check jenkins sync" />
     <MESSAGE value="One more jenkins check" />
     <MESSAGE value="Decrease groups test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decrease groups test" />
+    <MESSAGE value="Add remote start" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add remote start" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -3637,8 +3634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="53" column="67" lean-forward="true" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
+        <state relative-caret-position="510">
+          <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
           <folding>
             <element signature="e#2016#2017#0" expanded="true" />
             <element signature="e#2042#2043#0" expanded="true" />
