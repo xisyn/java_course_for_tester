@@ -31,8 +31,8 @@ dependencies {
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
     // https://mvnrepository.com/artifact/javax.xml/jaxb-impl
     compile group: 'javax.xml', name: 'jaxb-impl', version: '2.1'
-    agent "org.aspectj:aspectjweaver:1.8.0"
-    testCompile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
+    agent "org.aspectj:aspectjweaver:1.8.10"
+    compile "io.qameta.allure:allure-testng:2.0-BETA3"
 }
 
 task testGroups(type: Test) {
