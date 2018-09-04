@@ -35,7 +35,10 @@ dependencies {
     compile "io.qameta.allure:allure-testng:2.0-BETA3"
     // https://mvnrepository.com/artifact/org.robotframework/robotframework
     compile group: 'org.robotframework', name: 'robotframework', version: '3.0.4'
-
+    // https://mvnrepository.com/artifact/info.cukes/cucumber-java
+    compile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
+    // https://mvnrepository.com/artifact/info.cukes/cucumber-testng
+    compile group: 'info.cukes', name: 'cucumber-testng', version: '1.2.5'
 }
 
 task testGroups(type: Test) {
