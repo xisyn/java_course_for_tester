@@ -28,6 +28,7 @@
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.3.2.Final" level="project" />
     <orderEntry type="library" name="Gradle: javax.xml.bind:jaxb-api:2.3.0" level="project" />
     <orderEntry type="library" name="Gradle: javax.xml:jaxb-impl:2.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.robotframework:robotframework:3.0.4" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:java-hamcrest:2.0.0.0" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-api:3.13.0" level="project" />

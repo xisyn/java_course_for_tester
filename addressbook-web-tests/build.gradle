@@ -33,6 +33,9 @@ dependencies {
     compile group: 'javax.xml', name: 'jaxb-impl', version: '2.1'
     agent "org.aspectj:aspectjweaver:1.8.10"
     compile "io.qameta.allure:allure-testng:2.0-BETA3"
+    // https://mvnrepository.com/artifact/org.robotframework/robotframework
+    compile group: 'org.robotframework', name: 'robotframework', version: '3.0.4'
+
 }
 
 task testGroups(type: Test) {
@@ -73,4 +76,11 @@ task testContacts(type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
+}
+
+task rf(type: JavaExec) {
+        main = 'org.robotframework.RobotFramework'
+        classpath = sourceSets.test.runtimeClasspath
+        args '--outputdir', 'build/rf-report'
+        args 'src/test/resources/rf'
 }
