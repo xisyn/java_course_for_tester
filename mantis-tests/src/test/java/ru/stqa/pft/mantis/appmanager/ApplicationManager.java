@@ -19,6 +19,7 @@ public class ApplicationManager {
 
     private String browser;
     private RegistrationHelper registrationHelper;
+    private PageHelper pageHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private JamesHelper jamesHelper;
@@ -53,6 +54,13 @@ public class ApplicationManager {
             registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
+    }
+
+    public PageHelper page() {
+        if (pageHelper == null){
+            pageHelper = new PageHelper(this);
+        }
+        return pageHelper;
     }
 
     public FtpHelper ftp() {
